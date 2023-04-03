@@ -1,3 +1,67 @@
+# Integrar web component stencil en React
+##### 1.  Hacer login y publicar tu componente de stencil
+
+`$ npm login` *te solicitara tu correo
+
+`$ npm publish`
+
+
+##### 2.  Instalar nuestro web component con npm
+
+>
+    npm i boton-prueba
+    
+##### 3. Abrir proyecto REACT y editar el archivo index.js
+colocar las siguientes linea:
+`$ import { defineCustomElements } from 'boton-prueba/loader';`
+
+b) añadir lo siguiente:
+`$ defineCustomElements(window);`
+
+
+ejemplo del archivo:
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+
+import { defineCustomElements } from 'boton-prueba/loader';
+
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+reportWebVitals();
+defineCustomElements(window);
+
+```
+##### 4. Abrir el archivo App.js y colocar el tag, ejemplo:
+
+```javascript
+import logo from './logo.svg';
+import './App.css';
+
+function App() {
+  return (
+    <div className="App">
+      <h2>Probando componente web  hecho con stencil en REACT</h2>
+      <at-button text="Hola estoy en react!"></at-button>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
